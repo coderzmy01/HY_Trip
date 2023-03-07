@@ -3,7 +3,7 @@ import HomeNavBar from "./cpnts/home-nav-bar.vue";
 import homeSearchBox from "./cpnts/home-search-box.vue";
 import useHome from "@/stores/modules/home.js";
 import HomeCategories from "./cpnts/home-categories.vue";
-
+import HomeContent from "./cpnts/home-content.vue";
 const homeStore = useHome();
 homeStore.fetchHotSuggestInfo();
 homeStore.fetchCategoriesInfo();
@@ -16,6 +16,7 @@ homeStore.fetchCategoriesInfo();
     </div>
     <homeSearchBox></homeSearchBox>
     <HomeCategories></HomeCategories>
+    <HomeContent></HomeContent>
   </div>
 </template>
 <style lang="less" scoped>
