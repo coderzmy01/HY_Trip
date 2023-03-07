@@ -23,6 +23,9 @@ const { categoriesInfo } = storeToRefs(homeStore);
   height: 80px;
   padding: 0 10px;
   margin-top: 8px;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 
   .item {
     display: flex;
@@ -31,10 +34,10 @@ const { categoriesInfo } = storeToRefs(homeStore);
     align-items: center;
     justify-content: center;
     width: 70px;
-    img{
+    img {
       width: 32px;
     }
-    .text{
+    .text {
       font-size: 5px;
     }
   }

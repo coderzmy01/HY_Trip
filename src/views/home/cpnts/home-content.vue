@@ -2,7 +2,14 @@
 <template>
   <div class="content">
     <h2 class="title">热门精选</h2>
-    <div class="list"></div>
+    <div class="list">数据列表</div>
+    <div class="list">数据列表</div>
+    <div class="list">数据列表</div>
+    <div class="list">数据列表</div>
+    <div class="list">数据列表</div>
+    <div class="list">数据列表</div>
+    <div class="list">数据列表</div>
+    <div class="list">数据列表</div>
   </div>
 </template>
 <style lang="less" scoped>
