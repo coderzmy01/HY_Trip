@@ -33,6 +33,8 @@ const { cityList } = storeToRefs(homeStore);
   }
   .list {
     height: 300px;
+    display: flex;
+    flex-wrap: wrap;
   }
 }
 </style>

@@ -28,12 +28,12 @@ const tabBarTap = (index) => {
 </template>
 <style lang="less" scoped>
 .tab-bar {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  border-top: 1px solid #f3f3f3;
-  display: flex;
+  // position: fixed;
+  // bottom: 0;
+  // left: 0;
+  // right: 0;
+  // border-top: 1px solid #f3f3f3;
+  // display: flex;
   height: 59px;
   // .tab-bar-item {
   //   display: flex;
