@@ -1,10 +1,11 @@
 <script setup>
-import { ref } from "vue";
+import { ref, computed } from "vue";
 import { useRouter } from "vue-router";
 import useCity from "../../../stores/modules/city";
 import { formatDate, getDiffDate } from "../../../utils/formatDate";
 import useHome from "../../../stores/modules/home";
 import { storeToRefs } from "pinia";
+import useMainStore from "../../../stores/modules/main";
 const router = useRouter();
 const cityStore = useCity();
 const curCity = cityStore.curCity;
@@ -12,17 +13,19 @@ const CityTap = function () {
   router.push("/city");
 };
 
-const nowDate = new Date();
-const startDate = ref(formatDate(nowDate));
-const endDate = ref(formatDate(nowDate.getTime() + 24 * 60 * 60 * 1000));
+const mainStore = useMainStore();
+const { startDate, endDate } = storeToRefs(mainStore);
+const startDateStr = computed(() => formatDate(startDate.value));
+const endDateStr = computed(() => formatDate(endDate.value));
+console.log(startDateStr.value);
 let diffDay = ref(1);
 const date = ref("");
 const show = ref(false);
 const onConfirm = (values) => {
   const [start, end] = values;
   show.value = false;
-  startDate.value = formatDate(start);
-  endDate.value = formatDate(end);
+  mainStore.startDate = start;
+  mainStore.endDate = end;
   diffDay = getDiffDate(start, end);
 };
 
@@ -51,14 +54,14 @@ const { hotSuggest } = storeToRefs(homeStore);
     <div class="start">
       <div class="date">
         <span class="tip">开始</span>
-        <span class="time">{{ startDate }}</span>
+        <span class="time">{{ startDateStr }}</span>
       </div>
       <div class="stay">共{{ diffDay }}天</div>
     </div>
     <div class="end">
       <div class="date">
         <span class="tip">出发</span>
-        <span class="time">{{ endDate }}</span>
+        <span class="time">{{ endDateStr }}</span>
       </div>
     </div>
   </div>

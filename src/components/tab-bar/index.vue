@@ -9,9 +9,9 @@ const tabBarTap = (index) => {
 </script>
 <template>
   <div class="tab-bar">
-    <van-tabbar v-model="curIndex" active-color="#ff9854">
+    <van-tabbar v-model="curIndex" active-color="#ff9854" route>
       <template v-for="(item, index) in tabBarData">
-        <van-tabbar-item :name="index" icon="home-o">
+        <van-tabbar-item :name="index" icon="home-o" :to="item.path">
           <span>{{ item.text }}</span>
           <template #icon>
             <img
